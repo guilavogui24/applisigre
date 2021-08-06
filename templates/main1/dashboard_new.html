@@ -1,0 +1,99 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Navbar</title>
+    <link href="{%static 'css/style.css'%}" rel="stylesheet">
+
+
+</head>
+
+
+<div class="container">
+    <section>
+        <h1 class="section-heading">Tableau de bord</h1>
+        <a href="{% url 'ajout_operation' %}"> <img src="{%static 'icons/add-new-icon.png'%}" alt=""></a>
+        <div class="container-solde ">
+            <div class="solde flex justify-between">
+                <div class="cadre zone-solde">
+                    <div class="cadre-libelle"> SOLDE</div>
+                    <div><h2>#</h2></div>
+                </div>
+                <div class="cadre zone-attente">
+                    <div class="cadre-libelle"> opérations en attentes</div>
+                    <div><h2 style="text-align: center;padding: 10px">#{{total_operation}}#</h2></div>
+                </div>
+            </div>
+            <form class="searh-form flex justify-between">
+                <input class="input-field" name="name" placeholder="Mot clé" type="text">
+
+                <input class="input-field" name="subject" placeholder="Type d'opération" type="text">
+                <input class="btn btn-primary " type="submit" value="Recherche">
+            </form>
+
+        </div>
+
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>N° Reference</th>
+                <th>Type</th>
+                <th>Montant</th>
+                <th>Date</th>
+                <th>Statut</th>
+                <th>Mise à jour</th>
+                <th>Suppression</th>
+            </tr>
+            </thead>
+
+            <tbody>
+<!--            <tr>-->
+<!--                <td data-label="ID">#</td>-->
+<!--                <td data-label="N° Reference">#</td>-->
+<!--                <td data-label="Type">#</td>-->
+<!--                <td data-label="Montant">#</td>-->
+<!--                <td data-label="Date">#</td>-->
+<!--                <td data-label="Staus">#</td>-->
+<!--                <td data-label="Mise à jour">#</td>-->
+<!--                <td data-label="Suppression">#</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td data-label="ID">#</td>-->
+<!--                <td data-label="N° Reference">#</td>-->
+<!--                <td data-label="Type">#</td>-->
+<!--                <td data-label="Montant">#</td>-->
+<!--                <td data-label="Date">#</td>-->
+<!--                <td data-label="Staus">#</td>-->
+<!--                <td data-label="Mise à jour">#</td>-->
+<!--                <td data-label="Suppression">#</td>-->
+<!--            </tr>-->
+                {% for operation in operations %}
+                <tr>
+                    <td data-label="ID">{{operation.id}}</td>
+                    <td data-label="N° Reference">{{operation.Ref_Operation}}</td>
+                    <td data-label="Type">{{operation.TypeOperation}}</td>
+                    <td data-label="Montant">{{operation.Montant_Chiffre}}</td>
+                    <td data-label="Date">{{operation.Date_Operation}}</td>
+                    <td data-label="Date">{{operation.Statut}}</td>
+                    <td data-label="Mise à jour"><a class='btn btn-sm btn-info' href="{% url 'modifier_operation' operation.id %}">Modifier</a></td>
+                    <td data-label="Suppression"><a class='btn btn-sm btn-danger' href="{% url 'supprimer_operation' operation.id %}">Supprimer</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+    </section>
+</div>
+
+{% endblock %}
+
+

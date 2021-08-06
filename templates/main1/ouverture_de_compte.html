@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="site-content">
+    <div class="container">
+        <section>
+            <!--            <h1 class="section-heading">Monde de payement</h1>-->
+            <div class="bloc-contenue"></div>
+
+            <h2 class="titre-article" style="text-align:">OUVRIR VOTRE COMPTE EN LIGNE</h2>
+            <br>
+            <div class="bloc-contenu">
+                <h3>Simple et rapide</h3>
+                <br>
+                <p>Votre demande d’ouverture de compte de dépôt 100% en ligne et de façon
+                    sécurisée depuis votre smartphone, tablette ou ordinateur.</p>
+                <br>
+                <a href="#">Voir les conditions d'éligibité</a>
+                <br>
+                <br>
+                <div>
+                    <a href="{% url 'dashboard' %}">
+                        <button class="btn btn-primary"><img alt="" src="{% static 'icons/.svg'%}">Espace Client
+                        </button>
+                    </a>
+                    <a href="{% url 'ouvrir_compte' %}">
+                        <button class="btn btn-secondary"><img alt="" src="{% static 'icons/.svg'%}">Ouvrir un compte
+                        </button>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </div>
+</div>
+
+{% endblock %}

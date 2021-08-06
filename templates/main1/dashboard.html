@@ -1,0 +1,107 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Site web CDCB</title>
+    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet" type="text/css"/>
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/mains.css" rel="stylesheet">
+</head>
+
+<div class="container">
+        <div class="asside-1" >
+            <div class=" ">
+                <h3 style="padding: 12px">Partenaires:</h3>
+
+                <a href="{% url 'ajout_partenaire'%}" ><div class="btn btn-primary" style="text-align:center">Créer Un Partenaire</div></a>
+                    <br>
+
+                  <table class="table ">
+                        <tr>
+                            <thead>
+                            <th>ID</th>
+                            <th>Partenaire</th>
+                            <th>Forme juridique</th>
+                            <th>Numero de compte</th>
+                            <th>Action</th>
+                            </thead>
+                        </tr>
+                        {% for partenaire in partenaires%}
+                           {% if user.is_authenticated %}
+                        <tr>
+                            <td data-label="ID">{{user.partenaire.id}}</td>
+                            <td data-label="Partenaire">{{user.partenaire.Denomination_Partenaire}}</td>
+                            <td data-label="Forme juridique">{{user.partenaire.Forme_Juridique}}</td>
+                            <td data-label="Numero de compte">{{user.partenaire.Num_Compte}}</td>
+                            <td data-label="Action">
+                                <a href="{% url 'partenaire' partenaire.id %}">
+                                <img alt="" src="{% static 'icons/eye-detail.png'%}"></a>
+
+                                <a href="{% url 'modifier_partenaire' partenaire.id %}">
+                                    <img alt="" src="{% static 'icons/Edit-icon.png'%}"></a>
+
+                                <a href="{% url 'supprimer_partenaire' partenaire.id %}">
+                                    <img alt="" src="{% static 'icons/Delete-icon.png'%}"></a>
+                            </td>
+
+                        </tr>
+                        {% else %}
+
+                        <p>Vous n'avez aucun partenaire enregistrer</p>
+                      {% endif %}
+                        {% endfor %}
+
+                    </table>
+
+            </div>
+
+            <div class="col-md-7">
+                <h3 style="padding: 12px">Opérations Récentes</h3>
+
+                    <a href="{% url 'ajout_operation'%}" ><div class="btn btn-primary" style="text-align:center">Nouvelle Opération  </div></a>
+                    <br>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>N° Reference</th>
+                            <th>Type</th>
+                            <th>Montant</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+
+
+                        <tbody>
+                        {% for operation in operations %}
+                        <tr>
+                            <td data-label="ID">{{operation.id}}</td>
+                            <td data-label="N° Reference">{{operation.Ref_Operation}}</td>
+                            <td data-label="Type">{{operation.TypeOperation}}</td>
+                            <td data-label="Montant">{{operation.Montant_Chiffre}}</td>
+                            <td data-label="Date">{{operation.Date_Operation}}</td>
+
+                            <td data-label="Action"><a href="{% url 'modifier_operation' operation.id %}">
+                                <img alt="" src="{% static 'icons/Edit-icon.png'%}"></a>
+
+                                <a href="{% url 'supprimer_operation' operation.id %}">
+                                <img alt="" src="{% static 'icons/Delete-icon.png'%}"></a>
+                            </td>
+
+                            {% endfor %}
+                        </tbody>
+
+                    </table>
+
+            </div>
+        </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,14 @@
+
+{% load static %}
+<html lang="fr">
+<head>
+
+    <title>Navbar</title>
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+</head>
+
+
+   <div class=" container flex justify-between items-center" style="padding: 20px; margin-bottom:50px" >
+       <a href="{% url 'acceuil' %}" style="display: inline-block"> <img class="logo" src="{%static 'images/cdcb_logo1.png'%}" alt="logo"></a>
+       <a href="#"> Aides</a>
+   </div>

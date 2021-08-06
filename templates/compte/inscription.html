@@ -1,0 +1,332 @@
+
+{% load crispy_forms_tags %}
+{% load static %}
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+    <style>
+
+		.user_card {
+			width: 350px;
+			margin-top: auto;
+			margin-bottom: auto;
+			background: #74cfbf;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			padding: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+
+		}
+
+		.form_container {
+			margin-top: 20px;
+		}
+
+		#form-title{
+			color: #fff;
+		}
+		.login_btn {
+			width: 100%;
+			height: 40px;
+			background: none;
+			border: none;
+			background: #C16F12;
+			color: #fff;
+			padding: 0px;
+			font-size: 16px;
+			transition: all 0.35s ease ;
+			font-height: normal;
+			border-radius: 5px;;
+		}
+		.login_btn:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+
+		.input-group-text {
+			background: #f7ba5b !important;
+			color: white !important;
+			border: 0 !important;
+			border-radius: 0.25rem 0 0 0.25rem !important;
+		}
+
+		input{
+			padding: 14px 10px 14px 40px;
+			width: 100%;
+			height: 40px;
+			background-color: #0000;
+			border: 1px solid #000;
+			margin: 10px 0;
+			outline: none;
+			letter-spacing: 1px;
+			transition: 0.3s;
+			color: #000;
+			border-radius: 5px
+		}
+
+		.input_user,
+		.input_pass:focus {
+
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+/* -------------------------------------------------------------------------------------*/
+
+.wrapper{
+    background-color: #fff;
+    width: 30%;
+    padding: 25px;
+    margin: 25px auto 0;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0, 5);
+}
+
+.wrapper h2{
+    background-color: #fcfcfc;
+    color: #C16F12;
+    font-size: 24px;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+H4{
+    font-size: 16px;
+    padding-bottom: 5px;
+    color: #000;
+    text-align: center;
+    font-weight: lighter;
+    background: #0000;
+}
+
+.wrapper form{
+    background:none;
+}
+
+.input-group{
+    margin-bottom: 8px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding: 1px 0;
+    background: #0000;
+}
+.input-box{
+    width: 100%;
+    margin: auto 4px;
+    position: relative;
+    background: #0000;
+
+}
+
+.input-box:last-child{
+    margin-right: 0;
+}
+
+.name{
+    padding: 14px 10px 14px 40px;
+    width: 100%;
+    height: 40px;
+    background-color: #0000;
+    border: 1px solid #000;
+    margin: 10px 0;
+    outline: none;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    color: #000;
+    border-radius: 5px;
+}
+
+.name:focus, .dob:focus{
+   -webkit-box-shadow: 0 0 2px 1px #C16F12;
+   -moz-box-shadow: 0 0 2px 1px #C16F12;
+   box-shadow: 0 0 2px 1px #C16F12;
+   border: 1px solid #C16F12;
+}
+
+.input-box .icon{
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    color: #fff;
+    background-color: #00000;
+    border-radius: 2px 0,0 2px;
+    transition: 0.3s;
+    font-size: 20px;
+    pointer-events: none;
+    border: 1px solid #00000033;
+    border-right: none;
+}
+
+.name:focus + .icon{
+    background-color: s#C16F12;
+    color: #fff;
+    border-right: 1px solid #C16F12;
+    border: none;
+    transition: 1s;
+}
+
+.input-box label:first-of-type{
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-right: none;
+}
+.input-box label:last-of-type{
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+.input-box select:focus{
+    background-color: #C16F12;
+    color: #fff;
+    text-align: center;
+}
+
+.button__1{
+    width: 100%;
+    height: 40px;
+    background: none;
+    border: none;
+    background: #C16F12;
+    color: #fff;
+    padding: 0px;
+    font-size: 16px;
+    transition: all 0.35s ease ;
+    font-height: normal;
+    border-radius: 5px;
+}
+
+button:hover{
+    cursor: pointer;
+    background: #5D5F60;
+}
+.button__2{
+    width: 100%;
+    height: 40px;
+    background: none;
+    border: 1px solid #000;
+    color: #fff;
+    padding: 0px;
+    font-size: 16px;
+    transition: all 0.35s ease ;
+    font-height: normal;
+    border-radius: 5px;
+}
+	</style>
+</head>
+<body>
+<div class="site-content">
+ <nav>
+                    <div class="top">
+                        <div class="container flex justify-between">
+                            <div class="contact flex items-center">
+                                <img src="{% static 'icons/phone.svg' %}" alt="">
+                                <div>
+                                    <h5>Contactez-nous: (+229) 67 19 37 64</h5>
+                                    <h6>E-mail : support@cdcb.com</h6>
+                                </div>
+                            </div>
+                            <div class="branding">
+                                <img src="{%static 'images/logo.png'%}" alt="">
+                            </div>
+                            <div class="time flex items-center">
+                                <img src="{% static 'icons/clock.svg' %}" alt="">
+                                <div>
+                                    <h5>Heure d'Ouverture:</h5>
+                                    <h6>Mon - Sat (8.00am - 12.00am)</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navbar magic-shadow">
+                        <div class="container flex justify-center">
+                            <a href="#" class="	"></a>
+
+                        </div>
+                    </div>
+                </nav>
+	<div class="wrapper">
+		 <h2>INSCRIPTION</h2>
+
+						<form method="POST" action="">
+							{% csrf_token %}
+							<div class="input-group mb-2">
+								<div class="input-group-append">
+									<span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
+								</div>
+								{{form.username}}
+							</div>
+							<div class="input-group mb-2">
+								<div class="input-group-append">
+									<span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
+								</div>
+								{{form.email}}
+							</div>
+							<div class="input-group mb-2">
+								<div class="input-group-append">
+									<span class="input-group-text"><i class="fas fa-key"></i></span>
+								</div>
+								{{form.password1}}
+							</div>
+							<div class="input-group mb-2">
+								<div class="input-group-append">
+									<span class="input-group-text"><i class="fas fa-key"></i></span>
+								</div>
+								{{form.password2}}
+							</div>
+							{{form.errors}}
+							<div class="d-flex justify-content-center mt-3 login_container">
+								<input class="btn login_btn" type="submit" value="S'inscrire">
+							</div>
+
+						</form>
+						<div class="mt-4">
+							<div class="d-flex justify-content-center links">
+								Avez-vous déjà un compte? <a href="{% url 'connexion' %}" class="ml-2">Login</a>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+	<script>
+						/* Because i didnt set placeholder values in forms.py they will be set here using vanilla Javascript
+		//We start indexing at one because CSRF_token is considered and input field
+		 */
+
+		//Query All input fields
+		var form_fields = document.getElementsByTagName('input')
+		form_fields[1].placeholder="Nom d'utilisateur..";
+		form_fields[2].placeholder='Email..';
+		form_fields[3].placeholder='Mot de passe...';
+		form_fields[4].placeholder='Confirmer le mot de pass...';
+
+
+		for (var field in form_fields){
+			form_fields[field].className += ' form-control'
+		}
+	</script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style type="text/css">
+	html, body{
+		height: 100%;
+	}
+
+	#page-wrapper{
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		background-color: #eaeaea;
+	}
+
+	#success-box{
+		max-width: 800px;
+		height: auto;
+		background-color: #fff;
+		border:1px solid #888;
+		border-radius: 5px;
+		padding: 15px;
+	}
+
+	#success-box p{
+		font-size: 18px;
+	}
+</style>
+</head>
+
+  <div class="container">
+	<div id="success-box" class="content-block">
+		<h1>Merci de nous avoir fais confiance!</h1>
+		<p>Votre formulaire a bien été soumis. Notre équipe de gestion analysera votre dossier et vous répondra dans les meilleurs délais :)</p>
+		<a id="back-btn" class="btn btn-primary" href="{% url 'acceuil' %}">RETOUR À LA PAGE D'ACCUEIL</a>
+	</div>
+</div>
+
+
+{% endfor %}

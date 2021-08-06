@@ -1,0 +1,68 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<div class="main-container">
+<div class="row" style="padding: 10px 40px">
+	<div class="col-md-5">
+		<h5>Partenaires:</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="">Créer Un Partenaire</a>
+			<table class="table table-sm">
+				<tr>
+					<th>ID</th>
+					<th>Partenaire</th>
+					<th>Forme juridique</th>
+					<th>Numero de compte</th>
+					<th>Details</th>
+				</tr>
+				{% for partenaire in partenaires%}
+				<tr>
+					<th><a href="{% url 'partenaire' partenaire.id %}">{{partenaire.id}}</a></th>
+					<th>{{partenaire.Denomination_Partenaire}}</th>
+					<th>{{partenaire.Forme_Juridique}}</th>
+					<th>{{partenaire.Num_Compte}}</th>
+					<th><a class='btn btn-sm btn-success' href="{% url 'partenaire' partenaire.id %}">Details</a></th>
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-7">
+		<h5>Toutes les Opérations</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'ajout_operation'%}">Ajouter une operation</a>
+			<table class="table table-sm">
+				<tr>
+					<th>ID</th>
+					<th>N° Reference</th>
+					<th>Type </th>
+					<th>Montant</th>
+					<th>Date</th>
+					<th>Mise à jour</th>
+					<th>Suppression</th>
+				</tr>
+
+				{% for operation in operations %}
+				<tr>
+					<th>{{operation.id}}</th>
+					<th>{{operation.Ref_Operation}}</th>
+					<th>{{operation.TypeOperation}}</th>
+					<th>{{operation.Montant_Chiffre}}</th>
+					<th>{{operation.Date_Operation}}</th>
+					<th><a class='btn btn-sm btn-info' href="{% url 'modifier_operation' operation.id %}">Modifier</a></th>
+					<th><a class='btn btn-sm btn-danger' href="{% url 'supprimer_operation' operation.id %}">Supprimer</a></th>
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
+</div>
+</div>
+{% endblock %}

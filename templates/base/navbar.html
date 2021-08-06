@@ -1,0 +1,94 @@
+
+{% load static %}
+
+<html lang="fr-fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Site web CDCB</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+     <link rel="stylesheet" href="{%static 'css/style.css'%}">
+</head>
+
+<!-- Debut Header bande noire-->
+                <header class="topbar">
+                    <div class="container flex justify-between items-center">
+                        <div class="icons">
+                            <a href="#"><img src="{% static 'icons/facebook.svg' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'icons/twitter.svg' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'icons/google.svg' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'icons/instagram.svg' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'icons/search.svg' %}" alt=""></a>
+                        </div>
+                        <div class="auth flex items-center">
+                            {% if request.user.is_authenticated %}
+                            <div>
+                                <a href="{% url 'logout' %}"><img src="{% static 'icons/logout.png' %}" alt="">Deconnexion</a>
+                            </div>
+                            <span class="divider">|</span>
+                            {% else %}
+                            <div>
+                                <img src="{% static 'icons/edit.svg' %}" alt="">
+                                <a href="{% url 'register' %}">Inscription</a>
+                            </div>
+                            <span class="divider">|</span>
+                            <div>
+                                <img src="{% static 'icons/user-icon.svg' %}" alt="">
+                                <a href="{% url 'login' %}">Connexion</a>
+                            </div>
+                            <span class="divider">|</span>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </header>
+<!-- Fin Header bande noire-->
+
+
+<!--Debut navbar-->
+                <nav>
+                    <div class="top">
+                        <div class="container flex justify-between">
+                            <div class="contact flex items-center">
+                                <img src="{% static 'icons/phone.svg' %}" alt="">
+                                <div>
+                                    <h5>Téléhone: (+229) 21 31 00 52</h5>
+                                    <h6>E-mail : support@cdcb.com</h6>
+                                </div>
+                            </div>
+                            <div class="branding">
+                                <a href="{% url 'acceuil' %}"> <img src="{%static 'images/cdcb_logo1.png'%}" alt=""></a>
+                            </div>
+                            <div class="time flex items-center">
+                                <img src="{% static 'icons/clock.svg' %}" alt="">
+                                <div>
+                                    <h5>Heure d'Ouverture:</h5>
+                                    <h6>Lun - Sam (8.00am - 12.00am)</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navbar magic-shadow">
+                        <div class="container flex justify-center">
+                            <a href="{% url 'acceuil' %}" class="active">Accueil</a>
+                            <a href="{% url 'ouvrir_compte' %}">Ouvrir un Compte</a>
+                            <a href="{% url 'payement' %}">Paiements et virements</a>
+                            <a href="{% url 'procedure_deconsignation' %}">Déconsignation</a>
+                            <a href="{% url 'dashboard' %}">Espace Client</a>
+                            <a href="{% url 'aides_securite' %}">Aides et sécurité</a>
+                            <a href="{% url 'contact' %}">Contact</a>
+
+                        </div>
+                    </div>
+                </nav>
+<!--Fin navbar-->
+
+
+
+
+
+
+
+

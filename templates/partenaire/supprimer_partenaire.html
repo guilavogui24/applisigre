@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="page-wrapper">
+
+
+        <div class="warning-box cardre ">
+            <h1>Voulez-vous supprimer ce partenaire ? </h1>
+            <form action="{% url 'supprimer_partenaire' item.id %}" method="post">
+                {% csrf_token %}
+
+                <a class="btn btn-secondary" href="{% url 'dashboard' %}">Annuler</a>
+
+                <input class="btn btn-primary" type="submit" name="Confirmer">
+            </form>
+        </div>
+
+</div>
+
+{% endblock %}

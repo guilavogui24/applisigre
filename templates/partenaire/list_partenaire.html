@@ -1,0 +1,96 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <section>
+        <div class="row" style="padding: 0px 40px ">
+            <div class="flex justify-between">
+
+                <div class="cadre cadre-information">
+                    <div class="cadre-libelle flex   ">
+                        <p>Informations</p>
+
+                    </div>
+                    <p>Dénomination partenaire: <b>{{partenaire.Denomination_Partenaire}}</b></p>
+                    <p>N° de Compte: <b>{{partenaire.Num_Compte}}</b></p>
+                    <p>Représentant légal: <b>{{partenaire.Nom_Prenom_Rprst_legal}} </b></p>
+                </div>
+
+                <div class="cadre cadre-total">
+                    <p class="cadre-libelle">Total des Opérations</p>
+                    <h2 style="text-align: center;padding: 10px">{{solde_operation}} CFA</h2>
+                </div>
+
+
+                <div class="cadre cadre-instance">
+                    <p class="cadre-libelle">En instance</p>
+                    <h2 style="text-align: center;padding: 10px">{{total_operation}}</h2>
+                </div>
+
+            </div>
+        </div>
+        <div class="row" style="padding: 0px 40px ">
+            <div class="flex-1  ">
+
+                    <form class=" recherche flex justify-between" method="get">
+                        {{myFilter.form}}
+                        <button class="btn btn-primary" type="submit">Recherche</button>
+                    </form>
+
+            </div>
+
+        </div>
+        <br>
+
+        <div class="row" style="padding: 0px 40px ">
+            <div class="col-md">
+                <div class="card card-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>N° Reference</th>
+                            <th>Type</th>
+                            <th>Montant</th>
+                            <th>Devise</th>
+                            <th>Date</th>
+                            <th>Statut</th>
+                            <th>Mise à jour</th>
+                            <th>Suppression</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+
+                        {% for operation in operation%}
+                        <tr>
+                            <td data-label="ID">{{operation.id}}</td>
+                            <td data-label="N° Reference">{{operation.Ref_Operation}}</td>
+                            <td data-label="Type">{{operation.TypeOperation}}</td>
+                            <td data-label="Montant">{{operation.Montant_Chiffre}}</td>
+                            <td data-label="Devise">{{operation.Devise}}</td>
+                            <td data-label="Date">{{operation.Date_Operation}}</td>
+                            <td data-label="Statut">{{operation.Statut}}</td>
+                            <td data-label="Mise à jour"><a href="{% url 'modifier_operation' operation.id %}">
+                                <img alt="" src="{% static 'icons/Edit-icon.png'%}"> </a>
+                            </td>
+
+                            <td data-label="Suppression"><a href="{% url 'supprimer_operation' operation.id %}">
+                                <img alt="" src="{% static 'icons/Delete-icon.png'%}"></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+{% endblock %}

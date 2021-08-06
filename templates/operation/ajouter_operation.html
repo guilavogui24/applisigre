@@ -1,0 +1,114 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Navbar</title>
+    <link href="{%static 'css/style.css'%}" rel="stylesheet">
+    <style>
+
+        .wrapper{
+            background-color: #fff;
+            width: 50%;
+            padding: 25px;
+            margin: 10px auto 0px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0, 5);
+        }
+    <!--    button{-->
+    <!--        width: 100%;-->
+    <!--        height: 40px;-->
+    <!--        background-color: #BF6A09;-->
+    <!--        border: 1px solid #000;-->
+    <!--        color: #fff;-->
+    <!--        padding: 0px;-->
+    <!--        font-size: 16px;-->
+    <!--        transition: all 0.35s ease ;-->
+    <!--        font-height: normal;-->
+    <!--        border-radius: 5px;-->
+    <!--        }-->
+
+            form{
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            width: 100%;
+            }
+
+            label{
+                font-height: bold;
+            }
+
+
+            input, select{
+                align-items: center;
+                display: grid;
+                grid-template-columns: 1fr 3fr;
+                padding: 10px 10px 10px 40px;
+                width: 100%;
+                height: 40px;
+                background-color: #0000;
+                border: 1px solid #000;
+                margin: 10px 0;
+                outline: none;
+                letter-spacing: 1px;
+                transition: 0.3s;
+                color: #000;
+                border-radius: 5px;
+                align-items: center;
+            }
+
+
+
+
+
+
+
+    </style>
+</head>
+
+<section class="operation-crud">
+    <div class="container">
+        <h1 class="section-heading">Formulaire de dépôt et de consignation</h1>
+        <div class="operation-crud-wrap flex">
+            <div class="flex-1 text-operation-crud">
+                <h2>Simple et rapide, effectuez votre opération maintenant !</h2>
+                <p><a href="#"  class="primary-color">Visualiser l'ensemble de la documentation</a> (conditions contractuelles, informations produits …)</p>
+
+                <p> Les données personnelles recueillies ci-dessus sont utilisées par la CDCB, responsable de
+                    traitement,
+                    aux fins de traitement de votre demande. Les informations sur les traitements de données et sur
+                    l'exercice de vos droits sur ces données figurent dans la Notice de protection des données
+                    personnelles
+                    qui vous est fournie par email. Ce document est également disponible au siège
+                    et sur ce site.</p>
+                <p>Conditions et tarifs en vigueur au 05/01/2021. Offres formule Esprit Libre Initiative / Référence /
+                    Premier ou formule sur mesure réservées aux particuliers majeurs capables, sous réserve de remplir
+                    les
+                    conditions d'éligibilité et de l'acceptation définitive de votre demande par la banque, après
+                    signature
+                    électronique de vos contrats et transmission de vos pièces justificatives.</p>
+                    <a href="{% url 'cgu' %}"><button class="btn btn-primary">En savoir plus</button></a>
+
+            </div>
+
+                <div class="flex-1">
+                    <h2> JE REMPLIS MON FORMULAIRE AVEC CERTITUDE</h2>
+                    <form action="" method="POST">
+                        {% csrf_token%}
+                        {{form}}
+                        <p> En cliquant sur Valider, vous acceptez les CGU et la Politique vie privée</p>
+                        <input class="btn btn-primary" name="Envoyer" type="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

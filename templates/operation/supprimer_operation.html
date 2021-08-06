@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="page-wrapper">
+
+
+        <div class="warning-box cardre ">
+            <h1>Voulez-vous supprimer cette oppération ? </h1>
+            <form action="{% url 'supprimer_operation' item.id %}" method="post">
+                {% csrf_token %}
+
+                <a href="{% url 'dashboard' %}"><button class="btn btn-secondary">Annuler</button></a>
+                <input class="btn btn-primary" type="submit" name="Confirmer">
+            </form>
+        </div>
+
+</div>
+
+{% endblock %}

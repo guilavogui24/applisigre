@@ -1,0 +1,47 @@
+{% include 'base/navbar1_login.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+<style>
+		.email-send-content{
+			width: 80%;
+			margin-top: auto;
+			margin-bottom: auto;
+#			background: #74cfbf;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			padding: 10px;
+#			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.30);
+#			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.30);
+#			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.30);
+			border-radius: 5px;
+			text-align: center;
+			align-items: center;
+
+		}
+
+
+
+
+</style>
+
+<div ; class="container" style="padding: 20px; margin-bottom:50px">
+    <div class=" flex justify-center items-center">
+
+        <div class="email-send-content">
+            <img class="logo" src="{%static 'icons/Checkmark-icon-1.png'%}" style="padding: 20px; margin-bottom:20px"
+                 width="100">
+            <h3>Réinitialisation du mot de passe terminée</h3>
+            <br>
+            <p>Votre mot de passe a été défini. Vous pouvez aller de l'avant et vous connecter maintenant.</p>
+
+            <br>
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

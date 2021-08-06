@@ -1,0 +1,71 @@
+{% include 'base/navbar1_login.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+<style>
+        input{
+			padding: 14px 10px 14px 40px;
+			width: 60vh;
+			height: 40px;
+			background-color: #0000;
+			border: 1px solid #000;
+			margin: 10px 0;
+			outline: none;
+			letter-spacing: 1px;
+			transition: 0.3s;
+			color: #000;
+			border-radius: 5px
+		}
+
+		.btn{
+			width: auto;
+			letter-spacing: 0px;
+		}
+
+		.email-send-content{
+			width: 80%;
+			margin-top: auto;
+			margin-bottom: auto;
+#			background: #74cfbf;
+			position: relative;
+			display: flex;
+			justify-content: flex-start;
+			flex-direction: column;
+			padding: 10px;
+#			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.30);
+#			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.30);
+#			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.30);
+			border-radius: 5px;
+			text-align: left;
+			align-items: center;
+
+		}
+
+
+
+
+</style>
+
+<div ; class="container" style="padding: 20px; margin-bottom:50px">
+    <div class=" flex justify-center items-center">
+
+        <div class="email-send-content">
+
+            <h3>Entrez un nouveau mot de passe</h3>
+            <br>
+            <p>Veuillez entrer votre nouveau mot de passe deux fois afin que nous puissions vérifier que vous l'avez
+                saisi correctement.</p>
+            <br>
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form|crispy}}
+                <br>
+                <input class="btn btn-primary" type="submit" value="Changer mon mot de passe">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
