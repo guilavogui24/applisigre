@@ -1,10 +1,10 @@
 
- #Application SYGRE CDCB
+# Application SYGRE CDCB
  
 Sourcode et Ressources pour appsigre
 
 
-#Installation
+# Installation
 1 - dépôt de clone https://github.com/guilavogui24/applisigre.git
 2 - créer un environnement virtuel et activer
 pip installer virtualenv
@@ -14,13 +14,13 @@ envname\scripts\activate
 4 - pip install -r requirements.txt
 5 - python manage.py runserver
 
-#Caractéristiques
+# Caractéristiques
 Ouverture de compte CDCB en ligne
 Formulaire de dépôt et Consignation
 Accès espace client 
 Gestion des flux de travail en cours
 
-#Aperçu du cours
+# Aperçu du cours
 Intégration du template dans Djagno
 Conception et modèles de base de données
 Fichiers statiques
@@ -30,7 +30,7 @@ CRUD
 Construire le site
 
 
-#Pile technologique
+# Pile technologique 
 Python
 Django
 
